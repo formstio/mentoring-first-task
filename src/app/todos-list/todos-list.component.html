@@ -1,0 +1,7 @@
+<H1>Компонент Списк Задач</H1>
+
+<div class="conteiner-cart">
+    <div *ngFor="let item of todos$ | async">
+        <app-todo-card [todo]="item" (deleteTodo)="onDeleteTodo($event)"></app-todo-card>
+    </div>
+</div>
