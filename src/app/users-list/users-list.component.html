@@ -1,0 +1,7 @@
+<H1>Компонент Списка Users</H1>
+
+<div class="conteiner-cart">
+    <div *ngFor="let item of users$ | async">
+        <app-user-card [user]="item" (deleteUser)="onDeleteUser($event)"></app-user-card>
+    </div>
+</div>
