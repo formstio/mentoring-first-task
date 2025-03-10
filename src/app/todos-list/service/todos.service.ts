@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs";
 import {TodosApiService} from "./todos-api.service";
-import {Todo} from "./todo.model";
+import {Todo} from "../model/todo.model";
 
 @Injectable({
     providedIn: 'root'

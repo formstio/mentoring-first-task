@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {UserCardComponent} from "./user-card/user-card.component";
 import {UsersService} from "./service/users.service";
+
 
 
 @Component({
@@ -20,11 +21,27 @@ export class UsersListComponent implements OnInit{
         private usersService: UsersService
     ) {}
 
-    ngOnInit() {
-        this.usersService.loadUsers()
+    ngOnInit(): void {
+        const usersFromStorage = this.usersService.users;
+
+        if (usersFromStorage.length) {
+            this.usersService.setUsers(usersFromStorage);
+        } else {
+            this.usersService.loadUsers();
+        }
     }
+
 
     onDeleteUser(id: number) {
         this.usersService.deleteUser(id);
+    }
+
+    onEditUser(user: any) {
+        this.usersService.editUser({
+            ...user,
+            company: {
+                name: user.companyName,
+            }
+        });
     }
 }

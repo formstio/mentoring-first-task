@@ -29,9 +29,11 @@ export class UserCardComponent {
         });
 
         dialogRef.afterClosed().subscribe((editResult) => {
+            console.log('Модолка закрылась, значение формы: ', editResult);
             if (editResult) {
                 this.editUser.emit(editResult);
             }
+            this.editUser.emit(editResult);
         });
     }
 

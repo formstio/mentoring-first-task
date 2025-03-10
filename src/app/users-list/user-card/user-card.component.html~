@@ -6,7 +6,7 @@
     <p>{{$any(user).email}}</p>
     <p>{{$any(user).website}}</p>
     <p>{{$any(user).company.name}}</p>
-    <button class="btn" (click)="openDialog()">Редактировать</button>
     <button class="btn" (click)="onDeleteUser(user.id)">Удалить</button>
+    <button class="btn" (click)="openDialog()">Редактировать</button>
 </div>
 

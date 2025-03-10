@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 // @ts-ignore
-import {Todo} from "../todo.model";
+import {Todo} from "../model/todo.model";
 
 @Component({
     selector: 'app-todo-card',

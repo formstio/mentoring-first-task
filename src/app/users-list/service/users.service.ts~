@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { UsersApiService } from "./users-api.service";
 import { User } from "../model/user.model";
-import { LocalStorageService } from "./localstorage.service";
+import { LocalStorageService } from "./local-storage.service";
 
 const USERS_STORAGE_KEY = "users";
 

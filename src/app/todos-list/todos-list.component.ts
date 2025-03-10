@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {AsyncPipe, NgForOf} from "@angular/common";
 import {UserCardComponent} from "../users-list/user-card/user-card.component";
-import {TodosService} from "./todos.service";
+import {TodosService} from "./service/todos.service";
 import {TodoCardComponent} from "./todos-card/todo-card.component";
 
 @Component({
