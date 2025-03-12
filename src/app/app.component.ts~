@@ -1,0 +1,30 @@
+import {Component, EventEmitter, inject, Input} from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import {CreateUserFormComponent} from "./users-list/create-user-form/create-user-form.component";
+import {EditUserDialogComponent} from "./users-list/edit-user-dialog/edit-user-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+    imports: [RouterOutlet, CreateUserFormComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  title = 'mentoring-first-project';
+
+  @Input()
+  user: any;
+  readonly dialog = inject(MatDialog);
+  openDialog() {
+    const dialogRef = this.dialog.open(CreateUserFormComponent, {
+      data: {user: this.user},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Модолка закрылась, значение формы: ', result);
+    });
+  }
+}

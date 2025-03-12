@@ -1,0 +1,21 @@
+
+<div class="conteiner-cart__cart-users">
+
+    <p>Текст задачи:</p>
+    <div>
+        {{todo.title}}
+    </div>
+
+    <p>Автор задачи</p>
+    <div>
+        {{todo.userID}}
+    </div>
+
+    <p>Задача завершена:</p>
+    <div>
+        {{todo.completed ? 'Да' : 'Нет'}}
+    </div>
+
+    <button class="btn" (click)="onDeleteTodo()">Удалить задачу</button>
+</div>
+
