@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { UsersApiService } from "./users-api.service";
 import { User } from "../model/user.model";
 import { LocalStorageService } from "./localstorage.service";
@@ -34,6 +34,15 @@ export class UsersService {
     setUsers(users: User[]): void {
         this.users = users;
     }
+
+    addUser(newUser: User): void {
+        const newUserId = this.users.length ? Math.max(...this.users.map(user => user.id)) + 1 : 1;
+        const userWithId = { ...newUser, id: newUserId };
+
+        const updatedUsers = [...this.users, userWithId];
+        this.setUsers(updatedUsers);
+    }
+
 
     deleteUser(id: number): void {
         this.users = this.users.filter(user => user.id !== id);

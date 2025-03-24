@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { UsersApiService } from "./users-api.service";
 import { User } from "../model/user.model";
-import { LocalStorageService } from "./local-storage.service";
+import { LocalStorageService } from "./localstorage.service";
 
 const USERS_STORAGE_KEY = "users";
 
@@ -33,6 +33,11 @@ export class UsersService {
 
     setUsers(users: User[]): void {
         this.users = users;
+    }
+
+    addUser(newUser: User): void {
+        const updatedUsers = [...this.users, newUser]; // Добавляем нового пользователя
+        this.setUsers(updatedUsers); // Обновляем состояние
     }
 
     deleteUser(id: number): void {

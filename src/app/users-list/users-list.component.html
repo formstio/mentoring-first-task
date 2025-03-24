@@ -1,5 +1,11 @@
 <H1 class="title-name">Компонент Списка Users</H1>
 
+<button class="btnAdd" (click)="toggleForm()">Добавить пользователя</button>
+
+<app-create-user-form
+        *ngIf="isFormVisible" (createUser)="onUserCreated($event)"
+></app-create-user-form>
+
 <div class="container-cart">
     <div *ngFor="let user of users$ | async">
         <app-user-card

@@ -21,6 +21,9 @@ export class UserCardComponent {
     @Output()
     editUser = new EventEmitter();
 
+    @Output()
+    createUser = new EventEmitter();
+
     readonly dialog = inject(MatDialog);
 
     openDialog() {
