@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Inject, Injectable} from "@angular/core";
 import {Todo} from "../model/todo.model";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
@@ -10,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class TodosApiService {
     private apiService = 'https://jsonplaceholder.typicode.com/todos';
 
-    constructor(private http: HttpClient) {}
+    constructor(@Inject(HttpClient) private http: HttpClient) {}
 
     getTodos(): Observable<Todo[]> {
         const todos = this.http.get<Todo[]>(this.apiService);

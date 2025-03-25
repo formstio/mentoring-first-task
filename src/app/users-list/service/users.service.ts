@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import {Inject, Injectable} from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { UsersApiService } from "./users-api.service";
 import { User } from "../model/user.model";
@@ -10,21 +10,21 @@ const USERS_STORAGE_KEY = "users";
     providedIn: "root",
 })
 export class UsersService {
-    private _users$ = new BehaviorSubject<User[]>(this.getUsersFromLocalStorage());
-    readonly users$ = this._users$.asObservable();
+    private usersSubject$ = new BehaviorSubject<User[]>(this.getUsersFromLocalStorage());
+    readonly users$ = this.usersSubject$.asObservable();
 
     constructor(
-        private usersApiService: UsersApiService,
-        private localStorageService: LocalStorageService
+        @Inject(UsersApiService) private usersApiService: UsersApiService,
+        @Inject(LocalStorageService) private localStorageService: LocalStorageService
     ) {}
 
     get users(): User[] {
-        return this._users$.getValue();
+        return this.usersSubject$.getValue();
     }
 
     set users(users: User[]) {
         this.localStorageService.setItem(USERS_STORAGE_KEY, users);
-        this._users$.next(users);
+        this.usersSubject$.next(users);
     }
 
     private getUsersFromLocalStorage(): User[] {

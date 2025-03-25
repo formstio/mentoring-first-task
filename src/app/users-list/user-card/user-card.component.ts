@@ -1,6 +1,7 @@
 import {Component, EventEmitter, inject, Input, Output} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
 import {EditUserDialogComponent} from "../edit-user-dialog/edit-user-dialog.component";
+import {take} from "rxjs";
 
 @Component({
     selector: 'app-user-card',
@@ -31,7 +32,7 @@ export class UserCardComponent {
             data: {user: this.user},
         });
 
-        dialogRef.afterClosed().subscribe((editResult) => {
+        dialogRef.afterClosed().pipe(take(1)).subscribe((editResult) => {
             if (editResult) {
                 this.editUser.emit(editResult);
             }
