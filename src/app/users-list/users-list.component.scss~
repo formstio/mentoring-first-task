@@ -1,0 +1,24 @@
+.container-cart {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+.title-name {
+    margin-left: 30px;
+}
+
+.btn {
+    margin-top: 5px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    box-shadow: none;
+    border: none;
+    font-family: inherit;
+    background-color: #3f51b5;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 15px 30px;
+    margin-right: 20px;
+}

@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #3f51b5;
+
+    &__menu-nav {
+        display: flex;
+        justify-content: flex-start;
+        margin: 0;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        height: 70px;
+        margin-right: 20px;
+        list-style-type: none;
+        padding: 0;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24.2px;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+
+    &__menu-actions {
+        display: flex;
+        align-items: center;
+    }
+
+    &__create-btn {
+        box-shadow: none;
+        border: none;
+        font-family: inherit;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-right: 20px;
+    }
+
+}
